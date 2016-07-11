@@ -1,0 +1,19 @@
+<div class="ui raised segment">
+  <h2 class="ui header centered">
+    Manage Team
+  </h2>
+  <form [formGroup]="teamForm"
+    (ngSubmit)="onSubmit(teamForm.value)"
+    class="ui form">
+    <div class="field">
+      <label for="teamName">Team Name</label>
+      <input type="text"
+             id="teamName"
+             placeholder="Team Name"
+             [formControl]="teamForm.controls['teamName']">
+      <div *ngIf="teamName.hasError('shortName') && teamName.touched"
+           class="ui error message">Team Name Must Be Greater Than 3 Characters</div>
+    </div>
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>

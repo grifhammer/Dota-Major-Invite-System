@@ -1,0 +1,26 @@
+<h3>All Players</h3>
+<!--All Players-->
+
+<player-exchange></player-exchange>
+<div class="ui raised segment">
+  <form #f="ngForm"
+        (ngSubmit)="addPlayer(f.value)"
+        class="ui form">
+
+    <div class="field">
+      <label for="playerName">Player Name</label>
+      <input type="text"
+             id="playerName"
+             placeholder="Player Name"
+             name="playerName" ngModel>
+    </div>
+
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
+<!--<h3>Free Agents</h3>-->
+<!--Repeat over list of players without team assigned-->
+<!--Display Player Name and Buttons for each team they are invited to-->
+<!--<h3>'Signed' Players</h3>-->
+<!--Repeat over list of players with team assignment-->
+<!--Display Player Name and Team they are signed to-->

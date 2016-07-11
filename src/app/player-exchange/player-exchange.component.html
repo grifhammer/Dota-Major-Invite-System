@@ -1,0 +1,5 @@
+<div class="ui grid">
+  <div class="doubling four column row">
+    <player-invite-display class="column" *ngFor="let player of players | async" [player]="player"></player-invite-display>
+  </div>
+</div>

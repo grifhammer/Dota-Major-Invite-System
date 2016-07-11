@@ -7,10 +7,12 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'underscore': 'vendor/underscore/underscore.js',
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'underscore': {format: 'cjs'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,6 +28,7 @@ const barrels: string[] = [
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
+  '@angular/forms',
 
   // Thirdparty barrels.
   'rxjs',
@@ -34,12 +37,20 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/team-registration-page',
+  'app/team-registration-form',
+  'app/player-panel',
+  'app/player-management-page',
+  'app/free-agent',
+  'app/signed-player',
+  'app/player-exchange',
+  'app/player-invite-display',
   /** @cli-barrel */
 ];
 
 const cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
-  cliSystemConfigPackages[barrelName] = { main: 'index' };
+  let main: string = barrelName === 'rxjs' ? 'RX' : 'index';
+  cliSystemConfigPackages[barrelName] = { main: main };
 });
 
 /** Type declaration for ambient System. */
@@ -50,6 +61,7 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
+    'underscore': "/node_modules/underscore.js",
     'main': 'main.js'
   },
   packages: cliSystemConfigPackages
